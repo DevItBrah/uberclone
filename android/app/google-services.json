@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "874996868252",
+    "project_id": "uber-eat-c52c9",
+    "storage_bucket": "uber-eat-c52c9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874996868252:android:92220bc266268382467959",
+        "android_client_info": {
+          "package_name": "com.example.ubereats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr6EncFA7bPqzw3OCgNa6OvByvZjYymrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

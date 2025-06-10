@@ -6,6 +6,9 @@ import 'package:sizer/sizer.dart';
 import 'package:ubereats/utils/colors.dart';
 import 'package:ubereats/utils/textStyles.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:ubereats/view/basket/basketScreen.dart';
+import 'package:ubereats/view/browse/browse.dart';
+import 'package:ubereats/view/grocery/groceryScreen.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({super.key});
@@ -73,7 +76,12 @@ class _OTPScreenState extends State<OTPScreen> {
                 elevation: 2,
               ),
 
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BrowseScreen()),
+                );
+              },
               child: Row(
                 children: [
                   Text('Next', style: AppTextStyles.body14),

@@ -72,6 +72,12 @@ class AppTextStyles {
     fontFamily: 'UberMoveMedium',
     color: black,
   );
+  static TextStyle small12Bold = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'UberMoveMedium',
+    color: black,
+  );
   static TextStyle small10 = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.normal,

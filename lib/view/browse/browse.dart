@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ubereats/utils/colors.dart';
 import 'package:ubereats/utils/textStyles.dart';
 import 'package:sizer/sizer.dart';
+import 'package:ubereats/view/bottomNavigationBar.dart';
 
 class BrowseScreen extends StatefulWidget {
   const BrowseScreen({super.key});
@@ -37,40 +38,53 @@ class _BrowseScreenState extends State<BrowseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
-        children: [
-          SizedBox(height: 2.h),
-          Text(
-            'All Categories',
-            style: AppTextStyles.body16,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 3.h),
-          GridView.builder(
-            itemCount: categories.length,
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              childAspectRatio: 1,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
+    return SafeArea(
+      child: Scaffold(
+        body: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 2.h),
+          children: [
+            SizedBox(height: 5.h),
+            Text(
+              'All Categories',
+              style: AppTextStyles.body16,
+              textAlign: TextAlign.center,
             ),
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Image(image: AssetImage(img)),
-                  Expanded(
-                    child: Image(image: AssetImage(categories[index][0])),
-                  ),
-                  SizedBox(height: 0.5.h),
-                  Text(categories[index][1], style: AppTextStyles.body14),
-                ],
-              );
-            },
-          ),
-        ],
+            SizedBox(height: 2.h),
+            GridView.builder(
+              itemCount: categories.length,
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                childAspectRatio: 1,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+              ),
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.sp),
+                          color: greyShade3,
+                        ),
+                        child: Image(image: AssetImage(categories[index][0])),
+                      ),
+                    ),
+                    SizedBox(height: 1.h),
+                    Text(
+                      categories[index][1],
+                      style: AppTextStyles.small12.copyWith(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

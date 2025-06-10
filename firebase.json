@@ -1,0 +1,26 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "uber-eat-c52c9",
+          "appId": "1:874996868252:android:92220bc266268382467959",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "uber-eat-c52c9",
+          "configurations": {
+            "android": "1:874996868252:android:92220bc266268382467959",
+            "ios": "1:874996868252:ios:d327b5c0b081a37f467959"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

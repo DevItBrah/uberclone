@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ubereats/controller/services/authServices/mobileAuthServices.dart';
+import 'package:ubereats/controller/services/provider/authProvider.dart';
 import 'package:ubereats/utils/colors.dart';
 import 'package:ubereats/utils/textStyles.dart';
 import 'package:sizer/sizer.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ubereats/view/authScreen/otpScreen.dart';
 
 class MobileLoginScreen extends StatefulWidget {
   const MobileLoginScreen({super.key});
@@ -15,6 +19,17 @@ class MobileLoginScreen extends StatefulWidget {
 class _MobileLoginScreenState extends State<MobileLoginScreen> {
   String selectedCountry = '+91';
   TextEditingController mobileController = TextEditingController();
+  bool receiveOTPButtonPressed = false;
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        receiveOTPButtonPressed = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,26 +108,37 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
             ),
             SizedBox(height: 3.h),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OTPScreen()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
                 minimumSize: Size(90.w, 6.h),
               ),
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Next',
-                      style: AppTextStyles.body16.copyWith(color: white),
+              child: receiveOTPButtonPressed
+                  ? CircularProgressIndicator(color: white)
+                  : Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'Next',
+                            style: AppTextStyles.body16.copyWith(color: white),
+                          ),
+                        ),
+                        Positioned(
+                          right: 5.w,
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: white,
+                            size: 3.h,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Positioned(
-                    right: 5.w,
-                    child: Icon(Icons.arrow_forward, color: white, size: 3.h),
-                  ),
-                ],
-              ),
             ),
             SizedBox(height: 3.h),
             Text(
